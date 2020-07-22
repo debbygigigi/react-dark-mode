@@ -7,6 +7,7 @@ import {
   NotificationOutlined,
 } from "@ant-design/icons";
 import Home from "./pages/home";
+import SwitchButton from "./components/SwitchButton";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -19,11 +20,18 @@ function App() {
       <Header className="header">
         <img className="logo" src={logo} alt="logo" />
 
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={["2"]}
+          style={{ display: "inline-block" }}
+        >
           <Menu.Item key="1">nav 1</Menu.Item>
           <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
+          <Menu.Item key="3"></Menu.Item>
         </Menu>
+
+        <SwitchButton />
       </Header>
       <Content style={{ padding: "0 50px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
