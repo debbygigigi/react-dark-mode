@@ -67,7 +67,7 @@ function App() {
             </Menu>
           </Sider>
           <Content style={{ padding: "0 24px", minHeight: 280 }}>
-            Content
+            <Home />
           </Content>
         </Layout>
       </Content>
