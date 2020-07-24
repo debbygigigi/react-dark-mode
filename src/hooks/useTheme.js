@@ -1,26 +1,29 @@
 import { useState, useEffect } from "react";
+import useLocalStorage from "react-use-localstorage";
+
+import darkTheme from "../themes/dark.json";
+import lightTheme from "../themes/light.json";
 
 export const THEME = {
   LIGHT: "light",
   DARK: "dark",
 };
 
-const getTheme = {
-  [THEME.LIGHT]: () => import("../themes/light.json"),
-  [THEME.DARK]: () => import("../themes/dark.json"),
-};
-
 const toggleTheme = async (theme) => {
-  const targetTheme = await getTheme[theme]();
-  window.less.modifyVars(targetTheme);
+  if (theme === THEME.LIGHT) {
+    window.less.modifyVars(lightTheme);
+  } else {
+    window.less.modifyVars(darkTheme);
+  }
 };
 
 export default () => {
-  const [theme, setTheme] = useState(THEME.LIGHT);
+  const [localTheme, setLocalTheme] = useLocalStorage("APP_THEME", THEME.DARK);
+  const [theme, setTheme] = useState(localTheme || THEME.DARK);
 
   useEffect(() => {
-    const target = theme === THEME.DARK ? THEME.LIGHT : THEME.DARK;
-    toggleTheme(target);
+    setLocalTheme(theme);
+    toggleTheme(theme);
   }, [theme]);
 
   return {
