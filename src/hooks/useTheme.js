@@ -24,7 +24,7 @@ export default () => {
   useEffect(() => {
     setLocalTheme(theme);
     toggleTheme(theme);
-  }, [theme]);
+  }, [theme, setLocalTheme]);
 
   return {
     theme,
