@@ -31,7 +31,9 @@ function App() {
           <Menu.Item key="3"></Menu.Item>
         </Menu>
 
-        <SwitchButton />
+        <div style={{ display: "inline-block", float: "right", color: "#fff" }}>
+          <SwitchButton />
+        </div>
       </Header>
       <Content style={{ padding: "0 50px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>

@@ -12,8 +12,6 @@ const lightVars = getLessVars(
   "./node_modules/antd/lib/style/themes/compact.less"
 );
 
-delete lightVars["@padding-lg"];
-
 fs.writeFileSync("./src/themes/dark.json", JSON.stringify(darkVars));
 fs.writeFileSync("./src/themes/light.json", JSON.stringify(lightVars));
 fs.writeFileSync("./src/themes/theme.json", JSON.stringify(themeVariables));
